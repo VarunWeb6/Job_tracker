@@ -103,7 +103,12 @@ const JobDetailsModal = ({ job, open, onClose }) => {
                             {job.salary && (
                                 <div className="flex items-center gap-2 text-gray-700">
                                     <DollarSign className="h-4 w-4" />
-                                    <span>{job.salary}</span>
+                                    <span>
+                                        {typeof job.salary === 'object' 
+                                            ? `${job.salary.min} - ${job.salary.max} ${job.salary.currency}`
+                                            : job.salary
+                                        }
+                                    </span>
                                 </div>
                             )}
 
