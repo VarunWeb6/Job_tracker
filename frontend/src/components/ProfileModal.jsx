@@ -79,7 +79,7 @@ const ProfileModal = ({ onCancel }) => {
                         <Button type="button" variant="ghost" onClick={onCancel}>
                             Cancel
                         </Button>
-                        <Button type="submit" disabled={loading} className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                        <Button type="submit" disabled={loading} className="bg-muted-foreground hover:bg-accent/90 text-accent-foreground rounded-xl px-2 ">
                             {loading ? 'Saving...' : 'Save Changes'}
                         </Button>
                     </div>
