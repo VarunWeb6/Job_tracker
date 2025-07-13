@@ -106,7 +106,7 @@ const AuthForm = () => {
                         >
                             {!isLogin && (
                                 <motion.div variants={itemVariants} className="space-y-2">
-                                    <label className="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                    <label className="text-sm font-medium text-black flex items-center gap-2">
                                         <User className="h-4 w-4" />
                                         Full Name
                                     </label>
@@ -117,13 +117,13 @@ const AuthForm = () => {
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
                                         required 
                                         disabled={loading}
-                                        className="bg-slate-900/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12"
+                                        className="bg-slate-900/50 border-slate-600/50 text-black placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12"
                                     />
                                 </motion.div>
                             )}
                             
                             <motion.div variants={itemVariants} className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                <label className="text-sm font-medium text-black flex items-center gap-2">
                                     <Mail className="h-4 w-4" />
                                     Email Address
                                 </label>
@@ -134,12 +134,12 @@ const AuthForm = () => {
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
                                     required 
                                     disabled={loading}
-                                    className="bg-slate-900/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12"
+                                    className="bg-slate-900/50 border-slate-600/50 text-black placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12"
                                 />
                             </motion.div>
                             
                             <motion.div variants={itemVariants} className="space-y-2">
-                                <label className="text-sm font-medium text-slate-300 flex items-center gap-2">
+                                <label className="text-sm font-medium text-black flex items-center gap-2">
                                     <Lock className="h-4 w-4" />
                                     Password
                                 </label>
@@ -151,7 +151,7 @@ const AuthForm = () => {
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
                                         required 
                                         disabled={loading}
-                                        className="bg-slate-900/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12 pr-12"
+                                        className="bg-slate-900/50 border-slate-600/50 text-black placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12 pr-12"
                                     />
                                     <button
                                         type="button"
@@ -178,12 +178,12 @@ const AuthForm = () => {
                             <motion.div variants={itemVariants}>
                                 <Button 
                                     type="submit" 
-                                    className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
+                                    className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none px-4" 
                                     disabled={loading}
                                 >
                                     {loading ? (
                                         <div className="flex items-center gap-2">
-                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                            <div className=" w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                                             Please wait...
                                         </div>
                                     ) : (
@@ -200,11 +200,9 @@ const AuthForm = () => {
                             className="mt-6 text-center"
                         >
                             <div className="relative">
-                                <div className="absolute inset-0 flex items-center">
-                                    <div className="w-full border-t border-slate-700"></div>
-                                </div>
+                                
                                 <div className="relative flex justify-center text-sm">
-                                    <span className="px-2 bg-slate-800/50 text-slate-400">or</span>
+                                    <span className="px-2  text-slate-400">or</span>
                                 </div>
                             </div>
                             
