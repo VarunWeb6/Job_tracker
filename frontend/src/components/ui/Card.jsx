@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Card = ({ children, className = '' }) => (
-    <div className={`rounded-lg border bg-white text-gray-900 shadow-sm ${className}`}>
+    <div className={`rounded-xl border border-slate-800 bg-slate-900 text-slate-100 shadow-lg ${className}`}>
         {children}
     </div>
 );
@@ -11,7 +11,7 @@ export const CardHeader = ({ children, className = '' }) => (
 );
 
 export const CardTitle = ({ children, className = '' }) => (
-    <h3 className={`text-2xl font-semibold leading-none tracking-tight ${className}`}>{children}</h3>
+    <h3 className={`text-2xl font-semibold leading-none tracking-tight text-white ${className}`}>{children}</h3>
 );
 
 export const CardContent = ({ children, className = '' }) => (

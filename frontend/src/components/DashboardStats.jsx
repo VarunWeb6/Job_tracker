@@ -13,61 +13,57 @@ const DashboardStats = ({ jobs }) => {
     };
 
     const statItems = [
-        { 
-            label: 'Total Applications', 
-            value: stats.total, 
-            icon: Briefcase, 
-            color: 'from-blue-500 to-cyan-500',
-            bgColor: 'bg-blue-500/10',
-            borderColor: 'border-blue-500/20',
-            textColor: 'text-blue-400'
-        },
-        { 
-            label: 'Interviews Scheduled', 
-            value: stats.interviews, 
-            icon: MessageSquare, 
-            color: 'from-purple-500 to-pink-500',
-            bgColor: 'bg-purple-500/10',
-            borderColor: 'border-purple-500/20',
-            textColor: 'text-purple-400'
-        },
-        { 
-            label: 'Offers Received', 
-            value: stats.offers, 
-            icon: Award, 
-            color: 'from-green-500 to-emerald-500',
-            bgColor: 'bg-green-500/10',
-            borderColor: 'border-green-500/20',
-            textColor: 'text-green-400'
-        },
-        { 
-            label: 'Active Applications', 
-            value: stats.applied, 
-            icon: CheckCircle, 
-            color: 'from-yellow-500 to-orange-500',
-            bgColor: 'bg-yellow-500/10',
-            borderColor: 'border-yellow-500/20',
-            textColor: 'text-yellow-400'
-        },
-        { 
-            label: 'Rejected', 
-            value: stats.rejected, 
-            icon: XCircle, 
-            color: 'from-red-500 to-rose-500',
-            bgColor: 'bg-red-500/10',
-            borderColor: 'border-red-500/20',
-            textColor: 'text-red-400'
-        },
-    ];
+    { 
+        label: 'Total Applications', 
+        value: stats.total, 
+        icon: Briefcase, 
+        gradient: 'from-blue-600 to-blue-800',
+        borderColor: 'border-blue-700/50',
+        textColor: 'text-blue-400'
+    },
+    { 
+        label: 'Interviews Scheduled', 
+        value: stats.interviews, 
+        icon: MessageSquare, 
+        gradient: 'from-purple-600 to-fuchsia-800',
+        borderColor: 'border-purple-700/50',
+        textColor: 'text-purple-400'
+    },
+    { 
+        label: 'Offers Received', 
+        value: stats.offers, 
+        icon: Award, 
+        gradient: 'from-green-600 to-emerald-800',
+        borderColor: 'border-green-700/50',
+        textColor: 'text-green-400'
+    },
+    { 
+        label: 'Active Applications', 
+        value: stats.applied, 
+        icon: CheckCircle, 
+        gradient: 'from-amber-600 to-orange-800',
+        borderColor: 'border-amber-700/50',
+        textColor: 'text-amber-400'
+    },
+    { 
+        label: 'Rejected', 
+        value: stats.rejected, 
+        icon: XCircle, 
+        gradient: 'from-rose-600 to-red-800',
+        borderColor: 'border-rose-700/50',
+        textColor: 'text-rose-400'
+    },
+];
+
     
     const cardVariants = {
-        hidden: { opacity: 0, y: 30, scale: 0.9 },
+        hidden: { opacity: 0, y: 30, scale: 0.95 },
         visible: { 
             opacity: 1, 
             y: 0, 
             scale: 1,
             transition: { 
-                duration: 0.6,
+                duration: 0.5,
                 type: "spring",
                 stiffness: 100,
                 damping: 10
@@ -96,8 +92,7 @@ const DashboardStats = ({ jobs }) => {
                     key={item.label} 
                     variants={cardVariants}
                     whileHover={{ 
-                        y: -8, 
-                        scale: 1.05,
+                        y: -5,
                         transition: { duration: 0.2 }
                     }}
                     className="group"
@@ -106,21 +101,21 @@ const DashboardStats = ({ jobs }) => {
                         relative overflow-hidden h-full
                         bg-slate-800/50 backdrop-blur-sm
                         border ${item.borderColor} 
-                        hover:border-opacity-50
                         transition-all duration-300
-                        shadow-lg hover:shadow-2xl
-                        hover:shadow-${item.textColor.split('-')[1]}-500/20
+                        shadow-lg
+                        hover:bg-slate-700/50
+                        hover:border-slate-600
                     `}>
+                        {/* Background Gradient */}
+                        <div className={`
+                            absolute inset-0 bg-gradient-to-br ${item.gradient} 
+                            opacity-5 group-hover:opacity-10 transition-opacity duration-300
+                        `} />
+                        
                         <CardContent className="p-6 relative">
-                            {/* Background Gradient */}
-                            <div className={`
-                                absolute inset-0 bg-gradient-to-br ${item.color} 
-                                opacity-5 group-hover:opacity-10 transition-opacity duration-300
-                            `} />
-                            
                             {/* Icon Background */}
                             <div className={`
-                                absolute top-4 right-4 p-3 rounded-2xl ${item.bgColor}
+                                absolute top-4 right-4 p-3 rounded-2xl bg-slate-700/50
                                 group-hover:scale-110 transition-transform duration-300
                             `}>
                                 <item.icon className={`h-6 w-6 ${item.textColor}`} />
@@ -130,9 +125,8 @@ const DashboardStats = ({ jobs }) => {
                             <div className="relative z-10">
                                 <div className="mb-3">
                                     <div className={`
-                                        text-3xl font-bold bg-gradient-to-r ${item.color} 
+                                        text-4xl font-bold bg-gradient-to-r ${item.gradient} 
                                         bg-clip-text text-transparent
-                                        group-hover:scale-105 transition-transform duration-300
                                     `}>
                                         {item.value}
                                     </div>
@@ -144,9 +138,9 @@ const DashboardStats = ({ jobs }) => {
                                     </div>
                                     
                                     {/* Progress indicator */}
-                                    <div className="w-full bg-slate-700/50 rounded-full h-1.5 overflow-hidden">
+                                    <div className="w-full bg-slate-700 rounded-full h-1.5 overflow-hidden">
                                         <motion.div 
-                                            className={`h-full bg-gradient-to-r ${item.color} rounded-full`}
+                                            className={`h-full bg-gradient-to-r ${item.gradient} rounded-full`}
                                             initial={{ width: 0 }}
                                             animate={{ width: `${Math.min(100, (item.value / Math.max(stats.total, 1)) * 100)}%` }}
                                             transition={{ delay: index * 0.1 + 0.5, duration: 0.8 }}
@@ -154,10 +148,6 @@ const DashboardStats = ({ jobs }) => {
                                     </div>
                                 </div>
                             </div>
-                            
-                            {/* Decorative Elements */}
-                            <div className="absolute -bottom-2 -right-2 w-16 h-16 bg-gradient-to-tl from-white/5 to-transparent rounded-full" />
-                            <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-white/5 to-transparent rounded-full" />
                         </CardContent>
                     </Card>
                 </motion.div>

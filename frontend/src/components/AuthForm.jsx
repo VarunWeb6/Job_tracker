@@ -25,6 +25,7 @@ const AuthForm = () => {
         }
     };
 
+    // Animation variants remain great, no need to change
     const containerVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: { 
@@ -55,12 +56,12 @@ const AuthForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-4">
-            {/* Background Effects */}
+        <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4 font-sans">
+            {/* Background Effects (Subtler) */}
             <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-500/5 rounded-full blur-2xl"></div>
+                <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-500/5 rounded-full blur-2xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-fuchsia-500/3 rounded-full blur-2xl"></div>
             </div>
 
             <motion.div
@@ -69,19 +70,19 @@ const AuthForm = () => {
                 animate="visible"
                 className="relative z-10 w-full max-w-md"
             >
-                <Card className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 shadow-2xl">
+                <Card className="bg-slate-800/60 backdrop-blur-xl border border-slate-700 shadow-2xl">
                     <CardHeader className="text-center pb-2">
                         <motion.div 
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
                             transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
-                            className="mx-auto mb-4 p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl w-fit shadow-lg"
+                            className="mx-auto mb-4 p-3 bg-gradient-to-br from-cyan-600 to-blue-800 rounded-2xl w-fit shadow-lg"
                         >
                             <Target className="h-8 w-8 text-white" />
                         </motion.div>
                         
-                        <CardTitle className="text-2xl font-bold text-white mb-2">
-                            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                        <CardTitle className="text-2xl font-bold text-white mb-2 tracking-wide">
+                            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                                 JobTracker Pro
                             </span>
                         </CardTitle>
@@ -92,7 +93,7 @@ const AuthForm = () => {
                             transition={{ delay: 0.4 }}
                             className="text-slate-400"
                         >
-                            {isLogin ? 'Welcome back to your career journey' : 'Start your professional journey today'}
+                            {isLogin ? 'Welcome back, sign in to continue' : 'Create your account to get started'}
                         </motion.p>
                     </CardHeader>
                     
@@ -117,7 +118,7 @@ const AuthForm = () => {
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
                                         required 
                                         disabled={loading}
-                                        className="bg-slate-900/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12"
+                                        className="bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 rounded-xl h-12 transition-colors duration-200 focus:border-cyan-500"
                                     />
                                 </motion.div>
                             )}
@@ -134,7 +135,7 @@ const AuthForm = () => {
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
                                     required 
                                     disabled={loading}
-                                    className="bg-slate-900/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12"
+                                    className="bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 rounded-xl h-12 transition-colors duration-200 focus:border-cyan-500"
                                 />
                             </motion.div>
                             
@@ -151,7 +152,7 @@ const AuthForm = () => {
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })} 
                                         required 
                                         disabled={loading}
-                                        className="bg-slate-900/50 border-slate-600/50 text-white placeholder:text-slate-400 focus:border-blue-500/50 focus:ring-blue-500/20 rounded-xl h-12 pr-12"
+                                        className="bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 rounded-xl h-12 pr-12 transition-colors duration-200 focus:border-cyan-500"
                                     />
                                     <button
                                         type="button"
@@ -169,7 +170,7 @@ const AuthForm = () => {
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.3 }}
                                 >
-                                    <Alert className="bg-red-900/50 border-red-500/50 backdrop-blur-sm">
+                                    <Alert className="bg-red-900/50 border-red-500 backdrop-blur-sm">
                                         <AlertDescription className="text-red-300">{error}</AlertDescription>
                                     </Alert>
                                 </motion.div>
@@ -178,16 +179,16 @@ const AuthForm = () => {
                             <motion.div variants={itemVariants}>
                                 <Button 
                                     type="submit" 
-                                    className="w-full h-12 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none" 
+                                    className="w-full h-12 bg-gradient-to-r from-cyan-600 to-blue-800 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                                     disabled={loading}
                                 >
                                     {loading ? (
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center justify-center gap-2">
                                             <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                                             Please wait...
                                         </div>
                                     ) : (
-                                        isLogin ? 'Sign In to Dashboard' : 'Create Professional Account'
+                                        isLogin ? 'Sign In to Dashboard' : 'Create Account'
                                     )}
                                 </Button>
                             </motion.div>
@@ -199,19 +200,10 @@ const AuthForm = () => {
                             transition={{ delay: 0.6 }}
                             className="mt-6 text-center"
                         >
-                            <div className="relative">
-                                <div className="absolute inset-0 flex items-center">
-                                    <div className="w-full border-t border-slate-700"></div>
-                                </div>
-                                <div className="relative flex justify-center text-sm">
-                                    <span className="px-2 bg-slate-800/50 text-slate-400">or</span>
-                                </div>
-                            </div>
-                            
                             <button 
                                 type="button" 
                                 onClick={() => setIsLogin(!isLogin)} 
-                                className="mt-4 text-sm text-blue-400 hover:text-blue-300 transition-colors duration-200 font-medium" 
+                                className="mt-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors duration-200 font-medium" 
                                 disabled={loading}
                             >
                                 {isLogin 
@@ -221,12 +213,11 @@ const AuthForm = () => {
                             </button>
                         </motion.div>
                         
-                        {/* Professional Footer */}
                         <motion.div 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.8 }}
-                            className="mt-6 pt-4 border-t border-slate-700/50 text-center"
+                            className="mt-6 pt-4 border-t border-slate-700 text-center"
                         >
                             <p className="text-xs text-slate-500">
                                 Secure • Professional • Reliable
