@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Your backend URL
+  baseURL: 'https://job-tracker-1-7uar.onrender.com/api', // Your backend URL
 });
 
 // Interceptor to add the auth token to every request
